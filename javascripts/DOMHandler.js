@@ -1,3 +1,4 @@
+"use strict";
 // Variable to hold the final price. Default to 0.
 var finalSandwichPrice = 0;
 
@@ -10,7 +11,11 @@ var meatChooser = document.getElementById("meat-chooser");
 var cheeseChooser = document.getElementById("cheese-chooser");
 var condimentChooser = document.getElementById("condiment-chooser");
 var veggieChooser = document.getElementById("veggie-chooser");
-
+console.log(breadChooser);
+console.log(meatChooser);
+console.log(cheeseChooser);
+console.log(condimentChooser);
+console.log(veggieChooser);
 /* 
   A <select> element broadcasts a change event, so you listen for it
   and get the value of the topping from your augmented IIFE
@@ -22,8 +27,10 @@ var veggieChooser = document.getElementById("veggie-chooser");
 breadChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
+	console.log(selectedTopping);
 
-  // Determine the price of the topping chosen
+  // Determine the price of the topping chosen. Get the value of the 'bread' key.
+  SandwichMaker.addBread(selectedTopping); 
 
   // Add the topping to the SandwichMaker to increase the total price
 });
@@ -31,35 +38,42 @@ breadChooser.addEventListener("change", function(event) {
 meatChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
+	console.log(selectedTopping);
 
   // Determine the price of the topping chosen
-
+  SandwichMaker.addMeat(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
 
 cheeseChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
+	console.log(selectedTopping);
 
   // Determine the price of the topping chosen
-
+  SandwichMaker.addCheese(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
 
 condimentChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
+	console.log(selectedTopping);
 
   // Determine the price of the topping chosen
-
+  SandwichMaker.addCondiments(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
 
 veggieChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
+	console.log(selectedTopping);
 
   // Determine the price of the topping chosen
-
+  SandwichMaker.addVeggies(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
+
+
+console.log("The total price of your sammie is: ",finalSandwichPrice);

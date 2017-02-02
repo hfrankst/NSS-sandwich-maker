@@ -1,19 +1,20 @@
+"use strict";
 // This SandwichMaker IIFE augments the original one
 var SandwichMaker = (function(maker) {
 
   // Private variable to store the different meat prices
   var meatPrices = {
-  	"turkey": "3.00",
-  	"roast beef": "4.00",
-  	"buffalo chicken": "2.50",
-  	"honey ham": "3.50"
+  	"Turkey": 3.00,
+  	"Roast Beef": 4.00,
+  	"Buffalo Chicken": 2.50,
+  	"Honey Ham": 3.50
   };
-  console.log("Meat Options ", meatPrices);
 
   // Augment the original object with another method
-  // maker.addMeat = function(userIngredient) {
-  //   return ???;
-  // };
+  maker.addMeat = function(userIngredient) {
+  	console.log("Price of your meat $", meatPrices[userIngredient]);
+    return meatPrices[userIngredient];
+  };
 
   // Return the new, augmented object with the new method on it
   return maker;

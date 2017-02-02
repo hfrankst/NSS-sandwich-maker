@@ -1,19 +1,20 @@
+"use strict";
 // This SandwichMaker IIFE augments the original one
 var SandwichMaker = (function(maker) {
 
   // Private variable to store the different meat prices
   var condimentPrices = {
-  	"spicy mustard": ".75",
-  	"mayo": ".25",
-  	"red pepper relish": ".89",
-  	"siracha": ".75"
+  	"Spicy Mustard": .75,
+  	"Mayo": .25,
+  	"Red Pepper Relish": .89,
+  	"Siracha": .75
   };
-  console.log("Condiment Options ", condimentPrices);
-  
+
   // Augment the original object with another method
-  // maker.addCondiments = function(userIngredient) {
-  //   return ???;
-  // };
+  maker.addCondiments = function(userIngredient) {
+  	console.log("Price of your Condiment $", condimentPrices[userIngredient]);
+    return condimentPrices[userIngredient];
+  };
 
   // Return the new, augmented object with the new method on it
   return maker;
