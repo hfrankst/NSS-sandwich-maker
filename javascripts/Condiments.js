@@ -3,17 +3,17 @@
 var SandwichMaker = (function(maker) {
 
   // Private variable to store the different meat prices
-  var meatPrices = {
-  	"Turkey": 3.00,
-  	"Roast Beef": 4.00,
-  	"Buffalo Chicken": 2.50,
-  	"Honey Ham": 3.50
+  var condimentPrices = {
+  	"Spicy Mustard": .75,
+  	"Mayo": .25,
+  	"Red Pepper Relish": .89,
+  	"Siracha": .75
   };
 
   // Augment the original object with another method
-  maker.addMeat = function(userIngredient) {
-  	console.log("Price of your meat $", meatPrices[userIngredient]);
-    return meatPrices[userIngredient];
+  maker.addCondiments = function(userIngredient) {
+  	console.log("Price of your Condiment $", condimentPrices[userIngredient]);
+    return condimentPrices[userIngredient];
   };
 
   // Return the new, augmented object with the new method on it
