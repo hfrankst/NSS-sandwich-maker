@@ -23,52 +23,60 @@ console.log(veggieChooser);
 
 ///////Event Listeners for each of the sammie components
 
-
+/////////////////BREAD/////////////////////
 breadChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
-	console.log(selectedTopping);
+	console.log("Your bread choice: ", selectedTopping);
 
   // Determine the price of the topping chosen. Get the value of the 'bread' key.
   SandwichMaker.addBread(selectedTopping); 
 
   // Add the topping to the SandwichMaker to increase the total price
+  SandwichMaker.addTopping(selectedTopping, finalSandwichPrice);
+  console.log("Price after bread: ", finalSandwichPrice);
 });
 
+//////////////////MEAT////////////////////
 meatChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
-	console.log(selectedTopping);
+	console.log("Your meat choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
   SandwichMaker.addMeat(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
+    SandwichMaker.addTopping(selectedTopping + finalSandwichPrice);
+
 });
 
+///////////////////CHEESE////////////////////
 cheeseChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
-	console.log(selectedTopping);
+	console.log("Your cheese choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
   SandwichMaker.addCheese(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
 
+///////////////////CONDIMENTS////////////////////
 condimentChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
-	console.log(selectedTopping);
+	console.log("Your condiment choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
   SandwichMaker.addCondiments(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
 });
 
+///////////////////VEGGIE////////////////////
 veggieChooser.addEventListener("change", function(event) {
   // Get the value chosen from the DOM
   selectedTopping = event.target.value;
-	console.log(selectedTopping);
+	console.log("Your veggie choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
   SandwichMaker.addVeggies(selectedTopping);
@@ -76,4 +84,4 @@ veggieChooser.addEventListener("change", function(event) {
 });
 
 
-console.log("The total price of your sammie is: ",finalSandwichPrice);
+console.log("The total price of your sammie is: ", finalSandwichPrice);
