@@ -12,11 +12,11 @@ var cheeseChooser = document.getElementById("cheese-chooser");
 var condimentChooser = document.getElementById("condiment-chooser");
 var veggieChooser = document.getElementById("veggie-chooser");
 var sammiePrice = document.getElementById("finishedSammie");
-console.log(breadChooser);
-console.log(meatChooser);
-console.log(cheeseChooser);
-console.log(condimentChooser);
-console.log(veggieChooser);
+// console.log(breadChooser);
+// console.log(meatChooser);
+// console.log(cheeseChooser);
+// console.log(condimentChooser);
+// console.log(veggieChooser);
 /* 
   A <select> element broadcasts a change event, so you listen for it
   and get the value of the topping from your augmented IIFE
@@ -30,12 +30,12 @@ breadChooser.addEventListener("change", function(event) {
   selectedTopping = event.target.value;
 	console.log("Your bread choice: ", selectedTopping);
 
-  // Determine the price of the topping chosen. Get the value of the 'bread' key.
-  SandwichMaker.addBread(selectedTopping); 
+  // Determine the price of the topping chosen. Get the value of the 'bread' key. the addBread function is in Bread.js
+  // SandwichMaker.addBread(selectedTopping); 
 
-  // Add the topping to the SandwichMaker to increase the total price
-  SandwichMaker.addTopping(selectedTopping + finalSandwichPrice);
-  console.log("Price after bread: ", selectedTopping.value);
+  // Add the topping to the SandwichMaker to increase the total price. The addTopping function is in SandwichMaker.js
+  var postBreadChoice = SandwichMaker.addTopping(SandwichMaker.addBread(selectedTopping));
+  console.log("Price after bread: ", postBreadChoice);
 });
 
 //////////////////MEAT////////////////////
@@ -45,10 +45,11 @@ meatChooser.addEventListener("change", function(event) {
 	console.log("Your meat choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
-  SandwichMaker.addMeat(selectedTopping);
-  // Add the topping to the SandwichMaker to increase the total price
-    SandwichMaker.addTopping(selectedTopping + finalSandwichPrice);
+  // SandwichMaker.addMeat(selectedTopping);
 
+  // Add the topping to the SandwichMaker to increase the total price
+  var postMeatChoice = SandwichMaker.addTopping(SandwichMaker.addMeat(selectedTopping));
+  console.log("Price after meat: ", postMeatChoice);
 });
 
 ///////////////////CHEESE////////////////////
@@ -58,8 +59,11 @@ cheeseChooser.addEventListener("change", function(event) {
 	console.log("Your cheese choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
-  SandwichMaker.addCheese(selectedTopping);
+  // SandwichMaker.addCheese(selectedTopping);
+
   // Add the topping to the SandwichMaker to increase the total price
+  var postCheeseChoice = SandwichMaker.addTopping(SandwichMaker.addCheese(selectedTopping));
+  console.log("Price after cheese: ", postCheeseChoice);
 });
 
 ///////////////////CONDIMENTS////////////////////
@@ -69,8 +73,11 @@ condimentChooser.addEventListener("change", function(event) {
 	console.log("Your condiment choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
-  SandwichMaker.addCondiments(selectedTopping);
+  // SandwichMaker.addCondiments(selectedTopping);
+
   // Add the topping to the SandwichMaker to increase the total price
+  var postCondimentChoice = SandwichMaker.addTopping(SandwichMaker.addCondiments(selectedTopping));
+  console.log("Price after condiment: ", postCondimentChoice);
 });
 
 ///////////////////VEGGIE////////////////////
@@ -80,9 +87,12 @@ veggieChooser.addEventListener("change", function(event) {
 	console.log("Your veggie choice: ", selectedTopping);
 
   // Determine the price of the topping chosen
-  SandwichMaker.addVeggies(selectedTopping);
+  // SandwichMaker.addVeggies(selectedTopping);
   // Add the topping to the SandwichMaker to increase the total price
+  var postVeggieChoice = SandwichMaker.addTopping(SandwichMaker.addVeggies(selectedTopping));
+  console.log("Price after veggies: ", postVeggieChoice);
+  sammiePrice.innerHTML = `$` + postVeggieChoice.toFixed(2);
 });
 
-// sammiePrice.innerHTML =  
-console.log("The total price of your sammie is: ", finalSandwichPrice);
+// sammiePrice.innerHTML = postVeggieChoice;  
+// console.log("The total price of your sammie is: ", finalSandwichPrice);
