@@ -12,7 +12,7 @@ var SandwichMaker = (function(maker) {
 
   // Augment the original object with another method
   maker.addCheese = function(userIngredient) {
-  console.log("Price of your Cheese $", cheesePrices[userIngredient]);
+    console.log("Price of your Cheese $", cheesePrices[userIngredient]);
     return cheesePrices[userIngredient];
   };
 

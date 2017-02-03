@@ -10,8 +10,9 @@ var SandwichMaker = (function() {
   return {
     addTopping: function(toppingPrice) {
       totalPrice += toppingPrice;
+      console.log("Your price is ", totalPrice);
+      return totalPrice;
     }
   };
 
-  //need a function to grab the total price in order to put it on the DOM via .innerHTML
 })(SandwichMaker || {});

@@ -11,6 +11,7 @@ var meatChooser = document.getElementById("meat-chooser");
 var cheeseChooser = document.getElementById("cheese-chooser");
 var condimentChooser = document.getElementById("condiment-chooser");
 var veggieChooser = document.getElementById("veggie-chooser");
+var sammiePrice = document.getElementById("finishedSammie");
 console.log(breadChooser);
 console.log(meatChooser);
 console.log(cheeseChooser);
@@ -33,8 +34,8 @@ breadChooser.addEventListener("change", function(event) {
   SandwichMaker.addBread(selectedTopping); 
 
   // Add the topping to the SandwichMaker to increase the total price
-  SandwichMaker.addTopping(selectedTopping, finalSandwichPrice);
-  console.log("Price after bread: ", finalSandwichPrice);
+  SandwichMaker.addTopping(selectedTopping + finalSandwichPrice);
+  console.log("Price after bread: ", selectedTopping.value);
 });
 
 //////////////////MEAT////////////////////
@@ -83,5 +84,5 @@ veggieChooser.addEventListener("change", function(event) {
   // Add the topping to the SandwichMaker to increase the total price
 });
 
-
+// sammiePrice.innerHTML =  
 console.log("The total price of your sammie is: ", finalSandwichPrice);
